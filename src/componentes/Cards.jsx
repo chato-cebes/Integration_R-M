@@ -1,23 +1,21 @@
-import React, {useEffect}from "react";
+import React, { useEffect } from "react";
 import Card from "./Card";
-import characters  from "../data"
 
-export default function Cards() {
-
+export default function Cards({ characters, onClose }) {
   return (
     <div>
-    {
-        characters.map((character)=>{
-          return(
+      {characters.map(({ id, name, species, gender, image }) => {
+        return (
           <Card
-          key = {character.id}
-          name = {character.name}
-          species = {character.species}
-          gender = {character.gender}
-          image = {character.image}
-          />) 
-    })
-    }
+            key={id}
+            name={name}
+            species={species}
+            gender={gender}
+            image={image}
+            onClose={() => onClose(id)}
+          />
+        );
+      })}
     </div>
   );
 }
