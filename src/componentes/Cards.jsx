@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import Card from "./Card";
 
 export default function Cards({ characters, onClose }) {
@@ -8,6 +7,7 @@ export default function Cards({ characters, onClose }) {
         return (
           <Card
             key={id}
+            id={id}
             name={name}
             species={species}
             gender={gender}
