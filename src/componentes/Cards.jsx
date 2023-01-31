@@ -1,8 +1,16 @@
 import Card from "./Card";
+import styled from "styled-components";
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+`;
 
 export default function Cards({ characters, onClose }) {
   return (
-    <div>
+    <Container>
       {characters.map(({ id, name, species, gender, image }) => {
         return (
           <Card
@@ -16,6 +24,6 @@ export default function Cards({ characters, onClose }) {
           />
         );
       })}
-    </div>
+    </Container>
   );
 }
