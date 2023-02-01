@@ -32,7 +32,7 @@ function App() {
   //useEffect(()=>{},[]) recibe 2 parametrs uno es una callback y el otro es un array. 
   useEffect(()=>{
     !access && navigate("/")
-  },[access])
+  },[access, navigate])
   
 
   const onSearch = (character) => {
@@ -44,7 +44,8 @@ function App() {
         } else {
           window.alert("No hay personajes con ese ID");
         }
-      });
+      })
+      .catch(err => console.log(err))
   };
 
   const onClose = (id) => {

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { connect } from "react-redux";
+
 import { createFavorites } from "../redux/actions";
 import { deleteFav } from "../redux/actions";
 import { useDispatch, useSelector } from "react-redux";
@@ -42,7 +42,7 @@ function Card(props) {
         setIsfav(true);
       }
     });
-  }, [myFavorites]);
+  }, [myFavorites, props]);
 
   return (
     <Tarjeta>
@@ -66,7 +66,9 @@ function Card(props) {
   );
 }
 
-/* 
+/*
+
+// este si funciono pero queria probar los hooks
 const mapStateToProps = (state) => {
   return {
     myFavorites: state.myFavorites,
@@ -76,8 +78,8 @@ const mapStateToProps = (state) => {
 // este mapDispatchToProps no funciono no se por que :(
 const mapDispatchToProps = (dispatch) => {
   return {
-    createFavorites: () => dispatch(createFavorites()),
-    deleteFav: () => dispatch(deleteFav()),
+    createFavorites: (personaje) => dispatch(createFavorites(personaje)),
+    deleteFav: (id) => dispatch(deleteFav(id)),
   };
 };
 
